@@ -1,1 +1,3 @@
-<p>recording-list works!</p>
+@for (item of recordingsService.filteredRecordings(); track $index) {
+<div>{{ item.name }}</div>
+}

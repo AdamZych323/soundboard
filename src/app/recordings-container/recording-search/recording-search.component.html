@@ -1,1 +1,4 @@
-<p>recording-search works!</p>
+<input
+  [ngModel]="recordingsService.filters().name"
+  (ngModelChange)="recordingsService.filters.set({ name: $event })"
+/>
