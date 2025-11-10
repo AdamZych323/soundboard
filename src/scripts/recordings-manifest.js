@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const ASSETS_DIR = path.join(__dirname, "..", "assets");
-const MANIFEST_OUTPUT_PATH = path.join(ASSETS_DIR, "files-list.json");
+const MANIFEST_OUTPUT_PATH = path.join(ASSETS_DIR, "recording-list.json");
 const RECORDINGS_DIR = path.join(ASSETS_DIR, "recordings");
 const PATH_PREFIX_TO_REMOVE = path.join(RECORDINGS_DIR) + path.sep;
 
