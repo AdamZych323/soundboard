@@ -7,48 +7,48 @@ const RECORDINGS_DIR = path.join(ASSETS_DIR, "recordings");
 const PATH_PREFIX_TO_REMOVE = path.join(RECORDINGS_DIR) + path.sep;
 
 function walkDir(dir, fileList = []) {
-  const files = fs.readdirSync(dir);
+    const files = fs.readdirSync(dir);
 
-  files.forEach((file) => {
-    const filePath = path.join(dir, file);
-    const stat = fs.statSync(filePath);
+    files.forEach((file) => {
+        const filePath = path.join(dir, file);
+        const stat = fs.statSync(filePath);
 
-    if (stat.isDirectory()) {
-      if (file !== "node_modules") {
-        walkDir(filePath, fileList);
-      }
-    } else if (file !== path.basename(MANIFEST_OUTPUT_PATH)) {
-      fileList.push(filePath);
-    }
-  });
+        if (stat.isDirectory()) {
+            if (file !== "node_modules") {
+                walkDir(filePath, fileList);
+            }
+        } else if (file !== path.basename(MANIFEST_OUTPUT_PATH)) {
+            fileList.push(filePath);
+        }
+    });
 
-  return fileList;
+    return fileList;
 }
 
 try {
-  console.log("Generating assets manifest...");
+    console.log("Generating assets manifest...");
 
-  const absolutePaths = walkDir(RECORDINGS_DIR);
+    const absolutePaths = walkDir(RECORDINGS_DIR);
 
-  const relativePaths = absolutePaths.map((absolutePath) => {
-    let relativePath = absolutePath.replace(PATH_PREFIX_TO_REMOVE, "");
+    const relativePaths = absolutePaths.map((absolutePath) => {
+        let relativePath = absolutePath.replace(PATH_PREFIX_TO_REMOVE, "");
 
-    relativePath = relativePath.replace(/\\/g, "/");
+        relativePath = relativePath.replace(/\\/g, "/");
 
-    return "assets/" + relativePath;
-  });
+        return "assets/" + relativePath;
+    });
 
-  fs.writeFileSync(
-    MANIFEST_OUTPUT_PATH,
-    JSON.stringify(relativePaths, null, 2),
-    "utf-8"
-  );
+    fs.writeFileSync(
+        MANIFEST_OUTPUT_PATH,
+        JSON.stringify(relativePaths, null, 2),
+        "utf-8"
+    );
 
-  console.log(
-    `Assets manifest written to ${path.basename(MANIFEST_OUTPUT_PATH)}.`
-  );
-  console.log(`Found ${relativePaths.length} files.`);
+    console.log(
+        `Assets manifest written to ${path.basename(MANIFEST_OUTPUT_PATH)}.`
+    );
+    console.log(`Found ${relativePaths.length} files.`);
 } catch (error) {
-  console.error("Error generating assets manifest:", error);
-  process.exit(1);
+    console.error("Error generating assets manifest:", error);
+    process.exit(1);
 }

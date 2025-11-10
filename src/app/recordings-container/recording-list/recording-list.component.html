@@ -1,3 +1,9 @@
-@for (item of recordingsService.filteredRecordings(); track $index) {
-<div>{{ item.name }}</div>
+@if (recordingsService.filteredRecordings(); as recordings) {
+<ul>
+    @for (item of recordings; track $index) {
+    <li>{{ item.name }}</li>
+    }
+</ul>
+} @else {
+<span class="loader"></span>
 }

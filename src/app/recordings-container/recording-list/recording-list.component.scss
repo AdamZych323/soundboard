@@ -1,0 +1,47 @@
+:host {
+    display: block;
+    flex: 1;
+    overflow: auto;
+    text-align: center;
+    padding: 0 1rem;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: var(--primary);
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--secondary);
+        border-radius: 10px;
+        border: 1px solid var(--border);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background-color: #a5e4ff;
+    }
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+    gap: 5px;
+    li {
+        background-color: var(--secondary);
+        padding: 5px;
+        border: 1px var(--border) solid;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+}
+
+.loader {
+    text-align: center;
+}

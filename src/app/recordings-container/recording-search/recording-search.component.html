@@ -1,4 +1,6 @@
 <input
-  [ngModel]="recordingsService.filters().name"
-  (ngModelChange)="recordingsService.filters.set({ name: $event })"
+    class="search-input"
+    placeholder="Search..."
+    [ngModel]="recordingsService.filters().name"
+    (ngModelChange)="recordingsService.filters.set({ name: $event })"
 />

@@ -5,10 +5,10 @@ import { RecordingSearchComponent } from './recording-search/recording-search.co
 import { RecordingListComponent } from './recording-list/recording-list.component';
 
 @Component({
-  selector: 'app-recordings-container',
-  standalone: true,
-  imports: [RecordingSearchComponent, RecordingListComponent],
-  templateUrl: './recordings-container.component.html',
-  styleUrl: './recordings-container.component.scss',
+    selector: 'app-recordings-container',
+    standalone: true,
+    imports: [RecordingSearchComponent, RecordingListComponent],
+    templateUrl: './recordings-container.component.html',
+    styleUrl: './recordings-container.component.scss',
 })
 export class RecordingsContainerComponent {}

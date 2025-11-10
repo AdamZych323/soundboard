@@ -1,0 +1,22 @@
+:host {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+
+    .search-input {
+        background-color: var(--primary);
+        border: 1px var(--border) solid;
+        border-radius: 5px;
+        color: var(--primary-text);
+        padding: 6px;
+        line-height: 1.2rem;
+
+        &::placeholder {
+            color: var(--secondary-text);
+        }
+
+        &:focus {
+            outline: 1px var(--accent) solid;
+        }
+    }
+}
