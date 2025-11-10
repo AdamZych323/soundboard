@@ -35,7 +35,7 @@ try {
 
         relativePath = relativePath.replace(/\\/g, "/");
 
-        return "assets/" + relativePath;
+        return "assets/recordings/" + relativePath;
     });
 
     fs.writeFileSync(

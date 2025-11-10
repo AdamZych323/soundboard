@@ -2,14 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map, Observable, take } from 'rxjs';
+import { Recording } from './models/recording.model';
 
 type FilterParams = {
     name?: string;
-};
-
-type Recording = {
-    path: string;
-    name: string;
 };
 
 @Injectable({
@@ -44,15 +40,9 @@ export class RecordingsService {
             .pipe(
                 map((recordings) =>
                     recordings
-                        .map((path) => this.mapRecordingFromPath(path))
+                        .map((path) => new Recording(path))
                         .filter((r) => Boolean(r.name))
                 )
             );
-    }
-
-    private mapRecordingFromPath(path: string): Recording {
-        const name = path.match(/^assets\/(.*)\.wav$/)?.[1] || '';
-
-        return { path, name };
     }
 }

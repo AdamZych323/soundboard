@@ -1,7 +1,13 @@
 @if (recordingsService.filteredRecordings(); as recordings) {
 <ul>
-    @for (item of recordings; track $index) {
-    <li>{{ item.name }}</li>
+    @for (recording of recordings; track $index) {
+    <li (click)="recording.play()" [class.loading]="recording.isLoading()">
+        {{ recording.name }}
+        <div
+            class="progress"
+            [style.--progress]="recording.progress() + '%'"
+        ></div>
+    </li>
     }
 </ul>
 } @else {

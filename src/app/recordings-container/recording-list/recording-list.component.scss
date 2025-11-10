@@ -39,6 +39,30 @@ ul {
         border: 1px var(--border) solid;
         border-radius: 3px;
         cursor: pointer;
+        position: relative;
+
+        &:hover {
+            filter: brightness(85%);
+        }
+
+        &:active {
+            filter: brightness(75%);
+        }
+
+        &.loading {
+            filter: brightness(75%);
+            cursor: default;
+        }
+
+        .progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-color: var(--accent);
+            height: 100%;
+            width: var(--progress);
+            filter: opacity(0.2);
+        }
     }
 }
 
