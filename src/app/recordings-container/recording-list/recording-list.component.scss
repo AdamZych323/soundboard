@@ -31,7 +31,7 @@ ul {
     padding: 0;
     margin: 0;
     display: grid;
-    grid-template-columns: repeat(6, auto);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 5px;
     li {
         background-color: var(--secondary);

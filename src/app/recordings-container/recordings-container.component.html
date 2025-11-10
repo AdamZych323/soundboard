@@ -1,3 +1,13 @@
-<app-recording-search></app-recording-search>
+<div class="header">
+    <app-recording-search></app-recording-search>
+
+    <button
+        class="stop-button"
+        (click)="recordingsService.stopAll()"
+        [disabled]="!recordingsService.allRecordings()"
+    >
+        Stop
+    </button>
+</div>
 
 <app-recording-list></app-recording-list>

@@ -11,4 +11,6 @@ import { RecordingListComponent } from './recording-list/recording-list.componen
     templateUrl: './recordings-container.component.html',
     styleUrl: './recordings-container.component.scss',
 })
-export class RecordingsContainerComponent {}
+export class RecordingsContainerComponent {
+    public recordingsService = inject(RecordingsService);
+}

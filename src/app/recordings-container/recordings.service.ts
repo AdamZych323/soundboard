@@ -26,6 +26,14 @@ export class RecordingsService {
         return this.filterRecordings(allRecordings, this.filters());
     });
 
+    public stopAll() {
+        const recordings = this.allRecordings();
+        if (!recordings) {
+            return;
+        }
+        recordings?.forEach((r) => r.stop());
+    }
+
     private filterRecordings(recordings: Recording[], params: FilterParams) {
         return recordings.filter((r) =>
             r.name

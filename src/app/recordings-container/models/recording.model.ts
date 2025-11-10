@@ -32,7 +32,7 @@ export class Recording {
             this.#isLoading.set(false);
             this.#isLoaded$.next(true);
         };
-        this.#audioElement.ontimeupdate = (event) => {
+        this.#audioElement.ontimeupdate = () => {
             this.updateProgress();
         };
     }
@@ -52,6 +52,14 @@ export class Recording {
         });
     }
 
+    public stop() {
+        if (!this.isPlaying()) {
+            return;
+        }
+
+        this.stopPlaying();
+    }
+
     private startPlaying() {
         if (!this.#audioElement) {
             return;
@@ -60,7 +68,7 @@ export class Recording {
         this.#audioElement.play();
     }
 
-    private stopPlaying() {
+    public stopPlaying() {
         if (!this.#audioElement) {
             return;
         }

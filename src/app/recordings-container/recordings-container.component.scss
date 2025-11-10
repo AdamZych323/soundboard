@@ -4,3 +4,27 @@
     padding: 1rem 0;
     height: 100%;
 }
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.stop-button {
+    background-color: var(--primary);
+    border: 1px solid var(--border);
+    color: var(--primary-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        filter: brightness(85%);
+    }
+
+    &:active {
+        filter: brightness(75%);
+    }
+}
